@@ -1,9 +1,13 @@
 import Head from "next/head";
 import styles from "./layout.module.css";
 import { Box, Container, Typography } from "@mui/material";
+import { ReactNode } from "react";
 export const siteTitle = "Star Wars Movies Gallery";
+interface Props {
+  children: ReactNode[];
+}
 
-export default function Layout({ children }) {
+export default function Layout(props: Props) {
   return (
     <Container className={styles.container}>
       <Head>
@@ -15,7 +19,7 @@ export default function Layout({ children }) {
       <Box className={styles.header}>
         <Typography>Star Wars Movies Gallery</Typography>
       </Box>
-      <Container>{children}</Container>
+      <Container>{props.children}</Container>
     </Container>
   );
 }

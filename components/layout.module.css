@@ -1,9 +1,11 @@
-.container {
+.appContainer {
   width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-items: center;
   padding: 1rem;
+  margin: 0;
 }
 
 .header {
@@ -11,4 +13,11 @@
   width: 100%;
   flex-direction: column;
   align-items: center;
+}
+
+.contentContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }

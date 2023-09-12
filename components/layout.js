@@ -1,27 +1,21 @@
 import Head from "next/head";
 import styles from "./layout.module.css";
+import { Box, Container, Typography } from "@mui/material";
 export const siteTitle = "Star Wars Movies Gallery";
 
 export default function Layout({ children }) {
   return (
-    <div className={styles.container}>
+    <Container className={styles.container}>
       <Head>
         <link rel="icon" href="/favicon.ico" />
-        <meta
-          name="description"
-          content="Learn how to build a personal website using Next.js"
-        />
-        <meta
-          property="og:image"
-          content={`https://og-image.vercel.app/${encodeURI(
-            siteTitle,
-          )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
-        />
+        <meta name="description" content="Star Wars Movies Gallery" />
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <header className={styles.header}>Star Wars Movies Gallery</header>
-      <main>{children}</main>
-    </div>
+      <Box className={styles.header}>
+        <Typography>Star Wars Movies Gallery</Typography>
+      </Box>
+      <Container>{children}</Container>
+    </Container>
   );
 }

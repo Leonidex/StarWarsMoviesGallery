@@ -1,6 +1,6 @@
 import Layout from "../components/layout";
 import { Box } from "@mui/material";
-import { Explorer } from "../components/explorer";
+import { Explorer } from "../components/explorer/explorer";
 
 export default function Home({}) {
   return (

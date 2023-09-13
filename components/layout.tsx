@@ -1,6 +1,6 @@
 import Head from "next/head";
 import styles from "./layout.module.css";
-import { Box, Typography } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 import { ReactNode } from "react";
 
 interface Props {
@@ -11,7 +11,7 @@ const siteTitle = "Star Wars Movies Gallery";
 
 export default function Layout(props: Props) {
   return (
-    <Box className={styles.appContainer}>
+    <Stack direction={"column"} className={styles.appContainer}>
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta name="description" content="Star Wars Movies Gallery" />
@@ -23,6 +23,6 @@ export default function Layout(props: Props) {
         <Typography>Star Wars Movies Gallery</Typography>
       </Box>
       <Box className={styles.contentContainer}>{props.children}</Box>
-    </Box>
+    </Stack>
   );
 }

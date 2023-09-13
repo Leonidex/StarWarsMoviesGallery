@@ -1,24 +1,21 @@
 import { Grid, Paper, Select, TextField } from "@mui/material";
 import { Pane } from "./pane";
+import styles from "./explorer.module.css";
 
 interface Props {}
 
 export const Explorer = (props: Props) => {
   return (
-    <Paper square sx={{ height: "100%", width: "100%" }}>
+    <Paper square className={styles.explorer_container}>
       <Grid container columns={4}>
         <Grid item xs={1}>
-          <Select sx={{ height: "100%", width: "100%" }} />
+          <Select className={styles.explorer_item} />
         </Grid>
         <Grid item xs={3}>
-          <TextField value={"hello"} sx={{ height: "100%", width: "100%" }} />
+          <TextField value={"hello"} className={styles.explorer_item} />
         </Grid>
       </Grid>
-      <Grid
-        container
-        columns={{ xs: 1, md: 2 }}
-        sx={{ height: "100%", width: "100%" }}
-      >
+      <Grid flexGrow={1} container columns={{ xs: 1, md: 2 }}>
         <Grid item xs={1}>
           <Pane />
         </Grid>

@@ -25,7 +25,10 @@ export const Explorer = (props: Props) => {
     setIsLoading(true);
     fetchMovies()
       .then(() => setIsLoading(false))
-      .catch(console.error);
+      .catch((err) => {
+        console.error(err);
+        setIsLoading(false);
+      });
   }, []);
 
   const [movies] = useAtom(moviesAtom);
@@ -40,7 +43,7 @@ export const Explorer = (props: Props) => {
           <TextField value={"hello"} className={styles.explorer_item} />
         </Grid>
       </Grid>
-      <Grid flexGrow={1} container columns={{ xs: 1, md: 2 }}>
+      <Grid flexGrow={1} spacing={0.5} container columns={{ xs: 1, md: 2 }}>
         <Grid item xs={1}>
           <Pane>
             {isLoading ? (

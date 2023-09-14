@@ -1,4 +1,4 @@
-import { Card } from "@mui/material";
+import { Paper } from "@mui/material";
 import { ReactNode } from "react";
 
 interface Props {
@@ -7,8 +7,8 @@ interface Props {
 
 export const Pane = (props: Props) => {
   return (
-    <Card square sx={{ height: "100%", width: "100%" }}>
+    <Paper elevation={3} square sx={{ height: "100%", width: "100%" }}>
       {props.children}
-    </Card>
+    </Paper>
   );
 };

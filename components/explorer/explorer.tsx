@@ -1,12 +1,32 @@
-import { Grid, Paper, Select, TextField } from "@mui/material";
+import {
+  CircularProgress,
+  Grid,
+  Paper,
+  Select,
+  TextField,
+} from "@mui/material";
 import styles from "./explorer.module.css";
 import { moviesAtom } from "../../store/atoms";
 import { useAtom } from "jotai";
 import { Pane } from "./pane";
+import { useEffect, useState } from "react";
+import { fetchMoviesAtom } from "../../store/actions";
+import { MovieList } from "./movie-list/movie-list";
+import { Center } from "../basic/center";
 
 interface Props {}
 
 export const Explorer = (props: Props) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [, fetchMovies] = useAtom(fetchMoviesAtom);
+
+  useEffect(() => {
+    setIsLoading(true);
+    fetchMovies()
+      .then(() => setIsLoading(false))
+      .catch(console.error);
+  }, []);
+
   const [movies] = useAtom(moviesAtom);
 
   return (
@@ -21,7 +41,15 @@ export const Explorer = (props: Props) => {
       </Grid>
       <Grid flexGrow={1} container columns={{ xs: 1, md: 2 }}>
         <Grid item xs={1}>
-          <Pane />
+          <Pane>
+            {isLoading ? (
+              <Center>
+                <CircularProgress />
+              </Center>
+            ) : (
+              <MovieList movies={movies} />
+            )}
+          </Pane>
         </Grid>
         <Grid item xs={1}>
           <Pane />

@@ -1,5 +1,4 @@
 export interface Movie {
-  id: number;
   title: string;
   characters: string[];
   created: Date;

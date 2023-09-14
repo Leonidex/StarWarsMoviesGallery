@@ -13,6 +13,7 @@ import { useEffect, useState } from "react";
 import { fetchMoviesAtom } from "../../store/actions";
 import { MovieList } from "./movie-list/movie-list";
 import { Center } from "../basic/center";
+import { MovieView } from "./movie-view/movie-view";
 
 interface Props {}
 
@@ -52,7 +53,9 @@ export const Explorer = (props: Props) => {
           </Pane>
         </Grid>
         <Grid item xs={1}>
-          <Pane />
+          <Pane>
+            <MovieView />
+          </Pane>
         </Grid>
       </Grid>
     </Paper>

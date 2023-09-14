@@ -1,6 +1,6 @@
 import { atom } from "jotai";
 import { Movie } from "../types";
-import { moviesAtom } from "./atoms";
+import { moviesAtom, selectedMovieAtom } from "./atoms";
 import axios from "axios";
 
 export const fetchMoviesAtom = atom(null, async (get, set) => {
@@ -10,5 +10,15 @@ export const fetchMoviesAtom = atom(null, async (get, set) => {
     set(moviesAtom, movies);
   } catch (error) {
     console.error("There was an error fetching the movies", error);
+  }
+});
+
+export const setSelectedMovieAtom = atom(null, (get, set, movie: Movie) => {
+  const currentlySelectedMovie = get(selectedMovieAtom);
+
+  if (movie?.episode_id !== currentlySelectedMovie?.episode_id) {
+    set(selectedMovieAtom, movie);
+  } else {
+    set(selectedMovieAtom, null);
   }
 });

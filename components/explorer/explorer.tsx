@@ -22,6 +22,13 @@ import {
 } from "../../lib/utils/array";
 import { toPascalCase } from "../../lib/utils/string";
 
+enum SortKeysEnum {
+  episode_id = "episode_id",
+  release_date = "release_date",
+}
+
+const defaultSortValue = SortKeysEnum.episode_id;
+
 interface Props {}
 
 export const Explorer = (props: Props) => {
@@ -52,7 +59,7 @@ export const Explorer = (props: Props) => {
     [searchTerm],
   );
 
-  const [sortField, setSortField] = useState(null);
+  const [sortField, setSortField] = useState(defaultSortValue);
   const sortFilms = useCallback(
     (_films: Film[]) => {
       if (sortField) {
@@ -70,10 +77,11 @@ export const Explorer = (props: Props) => {
         <Grid item xs={1}>
           <Select
             className={styles.explorer_item}
+            label={"Sort by"}
             value={sortField}
-            placeholder={"Sort by..."}
+            onChange={(e) => setSortField(e.target.value as SortKeysEnum)}
           >
-            {Object.keys(films[0]).map((key) => (
+            {Object.keys(SortKeysEnum).map((key) => (
               <MenuItem value={key}>{toPascalCase(key)}</MenuItem>
             ))}
           </Select>

@@ -1,7 +1,7 @@
 import { Center } from "../../basic/center";
 import { Stack, Typography } from "@mui/material";
 import { useAtomValue } from "jotai";
-import { selectedFilmAtom } from "../../../store/atoms";
+import { selectedFilmAtom } from "../../../lib/store/atoms";
 
 interface Props {}
 

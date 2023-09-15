@@ -1,5 +1,5 @@
 import { List } from "@mui/material";
-import { Film } from "../../../types";
+import { Film } from "../../../lib/types";
 import { FilmListItem } from "./film-list-item";
 
 interface Props {

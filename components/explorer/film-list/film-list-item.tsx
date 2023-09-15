@@ -1,6 +1,6 @@
 import { Card, Grid, ListItem } from "@mui/material";
-import { Film } from "../../../types";
-import { setSelectedFilmAtom } from "../../../store/actions";
+import { Film } from "../../../lib/types";
+import { setSelectedFilmAtom } from "../../../lib/store/actions";
 import { useSetAtom } from "jotai";
 
 interface Props {

@@ -6,14 +6,16 @@ export default async function handler(
   res: NextApiResponse,
 ) {
   let response;
-  if (process.env.ITEM_DATA_API) {
-    response = await axios.get(process.env.ITEM_DATA_API);
+  if (process.env.API_ENDPOINT) {
+    response = await axios.get(
+      `${process.env.API_ENDPOINT}/films/?format=json`,
+    );
   } else {
-    throw new Error("Data API endpoint is undefined");
+    throw new Error("Films API endpoint is undefined");
   }
 
   if (response?.data?.results) {
-    res.status(200).json({ results: response?.data?.results });
+    res.status(200).json(response?.data?.results);
   } else {
     res.status(500);
   }

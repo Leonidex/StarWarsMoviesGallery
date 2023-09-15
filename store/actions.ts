@@ -6,7 +6,7 @@ import axios from "axios";
 export const fetchFilmsAtom = atom(null, async (get, set) => {
   try {
     const response = await axios.get("/api/films");
-    const films: Film[] = response.data.results;
+    const films: Film[] = response.data;
     set(filmsAtom, films);
   } catch (error) {
     console.error("There was an error fetching the films", error);

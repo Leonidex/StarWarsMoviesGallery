@@ -6,8 +6,8 @@ export default async function handler(
   res: NextApiResponse,
 ) {
   let response;
-  if (process.env.DATA_API) {
-    response = await axios.get(process.env.DATA_API);
+  if (process.env.ITEM_DATA_API) {
+    response = await axios.get(process.env.ITEM_DATA_API);
   } else {
     throw new Error("Data API endpoint is undefined");
   }

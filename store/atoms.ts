@@ -1,6 +1,6 @@
 import { atom } from "jotai";
-import { Movie } from "../types";
+import { Film } from "../types";
 
-export const moviesAtom = atom<Movie[]>([]);
+export const filmsAtom = atom<Film[]>([]);
 
-export const selectedMovieAtom = atom<Movie | null>(null);
+export const selectedFilmAtom = atom<Film | null>(null);

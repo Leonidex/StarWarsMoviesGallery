@@ -1,24 +1,24 @@
 import { atom } from "jotai";
-import { Movie } from "../types";
-import { moviesAtom, selectedMovieAtom } from "./atoms";
+import { Film } from "../types";
+import { filmsAtom, selectedFilmAtom } from "./atoms";
 import axios from "axios";
 
-export const fetchMoviesAtom = atom(null, async (get, set) => {
+export const fetchFilmsAtom = atom(null, async (get, set) => {
   try {
-    const response = await axios.get("/api/movies");
-    const movies: Movie[] = response.data.results;
-    set(moviesAtom, movies);
+    const response = await axios.get("/api/films");
+    const films: Film[] = response.data.results;
+    set(filmsAtom, films);
   } catch (error) {
-    console.error("There was an error fetching the movies", error);
+    console.error("There was an error fetching the films", error);
   }
 });
 
-export const setSelectedMovieAtom = atom(null, (get, set, movie: Movie) => {
-  const currentlySelectedMovie = get(selectedMovieAtom);
+export const setSelectedFilmAtom = atom(null, (get, set, film: Film) => {
+  const currentlySelectedFilm = get(selectedFilmAtom);
 
-  if (movie?.episode_id !== currentlySelectedMovie?.episode_id) {
-    set(selectedMovieAtom, movie);
+  if (film?.episode_id !== currentlySelectedFilm?.episode_id) {
+    set(selectedFilmAtom, film);
   } else {
-    set(selectedMovieAtom, null);
+    set(selectedFilmAtom, null);
   }
 });

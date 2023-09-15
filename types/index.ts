@@ -1,4 +1,4 @@
-export interface Movie {
+export interface Film {
   title: string;
   characters: string[];
   created: Date;
@@ -13,4 +13,13 @@ export interface Movie {
   starships: string[];
   url: string;
   vehicles: string[];
+}
+
+export enum ResourceTypeEnum {
+  FILMS = "FILMS",
+  PEOPLE = "PEOPLE",
+  STARSHIPS = "STARSHIPS",
+  VEHICLES = "VEHICLES",
+  SPECIES = "SPECIES",
+  PLANETS = "PLANETS",
 }

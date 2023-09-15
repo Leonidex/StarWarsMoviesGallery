@@ -6,24 +6,24 @@ import {
   TextField,
 } from "@mui/material";
 import styles from "./explorer.module.css";
-import { moviesAtom } from "../../store/atoms";
+import { filmsAtom } from "../../store/atoms";
 import { useAtom } from "jotai";
 import { Pane } from "./pane";
 import { useEffect, useState } from "react";
-import { fetchMoviesAtom } from "../../store/actions";
-import { MovieList } from "./movie-list/movie-list";
+import { fetchFilmsAtom } from "../../store/actions";
+import { FilmList } from "./film-list/film-list";
 import { Center } from "../basic/center";
-import { MovieView } from "./movie-view/movie-view";
+import { FilmView } from "./film-view/film-view";
 
 interface Props {}
 
 export const Explorer = (props: Props) => {
   const [isLoading, setIsLoading] = useState(false);
-  const [, fetchMovies] = useAtom(fetchMoviesAtom);
+  const [, fetchFilms] = useAtom(fetchFilmsAtom);
 
   useEffect(() => {
     setIsLoading(true);
-    fetchMovies()
+    fetchFilms()
       .then(() => setIsLoading(false))
       .catch((err) => {
         console.error(err);
@@ -31,7 +31,7 @@ export const Explorer = (props: Props) => {
       });
   }, []);
 
-  const [movies] = useAtom(moviesAtom);
+  const [films] = useAtom(filmsAtom);
 
   return (
     <Paper square className={styles.explorer_container}>
@@ -51,13 +51,13 @@ export const Explorer = (props: Props) => {
                 <CircularProgress />
               </Center>
             ) : (
-              <MovieList movies={movies} />
+              <FilmList films={films} />
             )}
           </Pane>
         </Grid>
         <Grid item xs={1}>
           <Pane>
-            <MovieView />
+            <FilmView />
           </Pane>
         </Grid>
       </Grid>

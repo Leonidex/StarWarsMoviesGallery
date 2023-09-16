@@ -1,6 +1,6 @@
 import Head from "next/head";
 import styles from "./layout.module.css";
-import { Box, Stack, Typography } from "@mui/material";
+import { Stack, Typography } from "@mui/material";
 import { ReactNode } from "react";
 
 interface Props {
@@ -19,10 +19,10 @@ export default function Layout(props: Props) {
         <meta name="twitter:card" content="summary_large_image" />
         <title>{siteTitle}</title>
       </Head>
-      <Box className={styles.header}>
-        <Typography>Star Wars Films Gallery</Typography>
-      </Box>
-      <Box className={styles.contentContainer}>{props.children}</Box>
+      <Stack className={styles.header}>
+        <Typography>{siteTitle}</Typography>
+      </Stack>
+      <Stack className={styles.contentContainer}>{props.children}</Stack>
     </Stack>
   );
 }

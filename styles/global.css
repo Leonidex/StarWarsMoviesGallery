@@ -16,10 +16,11 @@ body {
     sans-serif;
   line-height: 1.6;
   font-size: 18px;
-  height: 100vh;
+  height: 100%;
   width: 100vw;
   overflow-x: hidden;
   overflow-y: auto;
+  background-color: black;
 }
 
 #__next {

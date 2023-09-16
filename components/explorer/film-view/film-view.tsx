@@ -9,7 +9,7 @@ export const FilmView = (props: Props) => {
   const film = useAtomValue(selectedFilmAtom);
 
   return film ? (
-    <Stack direction={"column"}>
+    <Stack direction={"column"} padding={2}>
       <Typography variant={"h4"}>{film.title}</Typography>
       <Typography variant={"subtitle1"}>{film.opening_crawl}</Typography>
       <Typography variant={"subtitle1"}>

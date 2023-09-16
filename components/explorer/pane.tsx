@@ -7,7 +7,7 @@ interface Props {
 
 export const Pane = (props: Props) => {
   return (
-    <Paper elevation={3} square sx={{ height: "100%", width: "100%" }}>
+    <Paper elevation={3} sx={{ height: "100%", width: "100%" }}>
       {props.children}
     </Paper>
   );

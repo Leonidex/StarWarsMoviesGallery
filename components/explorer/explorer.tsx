@@ -1,4 +1,5 @@
 import {
+  Box,
   CircularProgress,
   FormControl,
   Grid,
@@ -7,6 +8,7 @@ import {
   MenuItem,
   Paper,
   Select,
+  Stack,
   TextField,
 } from "@mui/material";
 import styles from "./explorer.module.css";
@@ -77,43 +79,45 @@ export const Explorer = (props: Props) => {
 
   return (
     <Paper square className={styles.explorer_container}>
-      <Grid container columns={4}>
-        <Grid item xs={1}>
-          <FormControl className={styles.explorer_item} variant={"outlined"}>
-            <InputLabel id="sort-by-label">Sort by</InputLabel>
-            <Select
-              className={styles.explorer_item}
-              labelId="sort-by-label"
-              label={"Sort by"}
-              value={sortField}
-              onChange={(e) => setSortField(e.target.value as SortKeysEnum)}
-            >
-              {Object.keys(SortKeysEnum).map((key) => (
-                <MenuItem value={key} key={`sort-by-menu-item[${key}]`}>
-                  {toPascalCase(key)}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
-        </Grid>
-        <Grid item xs={3}>
-          <FormControl className={styles.explorer_item} variant={"outlined"}>
-            <TextField
-              value={searchTerm}
-              className={styles.explorer_item}
-              label={"Search"}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position={"start"}>
-                    <SearchIcon />
-                  </InputAdornment>
-                ),
-              }}
-            />
-          </FormControl>
-        </Grid>
-      </Grid>
+      <Paper elevation={3}>
+        <Stack direction={"row"} padding={"2px"} sx={{ gap: "2px" }}>
+          <Box sx={{ flexGrow: 1 }}>
+            <FormControl className={styles.explorer_item} variant={"outlined"}>
+              <InputLabel id="sort-by-label">Sort by</InputLabel>
+              <Select
+                className={styles.explorer_item}
+                labelId="sort-by-label"
+                label={"Sort by"}
+                value={sortField}
+                onChange={(e) => setSortField(e.target.value as SortKeysEnum)}
+              >
+                {Object.keys(SortKeysEnum).map((key) => (
+                  <MenuItem value={key} key={`sort-by-menu-item[${key}]`}>
+                    {toPascalCase(key)}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+          </Box>
+          <Box sx={{ flexGrow: 4 }}>
+            <FormControl className={styles.explorer_item} variant={"outlined"}>
+              <TextField
+                value={searchTerm}
+                className={styles.explorer_item}
+                label={"Search"}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position={"start"}>
+                      <SearchIcon />
+                    </InputAdornment>
+                  ),
+                }}
+              />
+            </FormControl>
+          </Box>
+        </Stack>
+      </Paper>
       <Grid flexGrow={1} spacing={0.5} container columns={{ xs: 1, md: 2 }}>
         <Grid item xs={1}>
           <Pane>

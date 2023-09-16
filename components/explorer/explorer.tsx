@@ -1,6 +1,9 @@
 import {
   CircularProgress,
+  FormControl,
   Grid,
+  InputAdornment,
+  InputLabel,
   MenuItem,
   Paper,
   Select,
@@ -21,6 +24,7 @@ import {
   sortArrayOfObjects,
 } from "../../lib/utils/array";
 import { toPascalCase } from "../../lib/utils/string";
+import SearchIcon from "@mui/icons-material/Search";
 
 enum SortKeysEnum {
   episode_id = "episode_id",
@@ -75,23 +79,39 @@ export const Explorer = (props: Props) => {
     <Paper square className={styles.explorer_container}>
       <Grid container columns={4}>
         <Grid item xs={1}>
-          <Select
-            className={styles.explorer_item}
-            label={"Sort by"}
-            value={sortField}
-            onChange={(e) => setSortField(e.target.value as SortKeysEnum)}
-          >
-            {Object.keys(SortKeysEnum).map((key) => (
-              <MenuItem value={key}>{toPascalCase(key)}</MenuItem>
-            ))}
-          </Select>
+          <FormControl className={styles.explorer_item} variant={"outlined"}>
+            <InputLabel id="sort-by-label">Sort by</InputLabel>
+            <Select
+              className={styles.explorer_item}
+              labelId="sort-by-label"
+              label={"Sort by"}
+              value={sortField}
+              onChange={(e) => setSortField(e.target.value as SortKeysEnum)}
+            >
+              {Object.keys(SortKeysEnum).map((key) => (
+                <MenuItem value={key} key={`sort-by-menu-item[${key}]`}>
+                  {toPascalCase(key)}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
         </Grid>
         <Grid item xs={3}>
-          <TextField
-            value={searchTerm}
-            className={styles.explorer_item}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
+          <FormControl className={styles.explorer_item} variant={"outlined"}>
+            <TextField
+              value={searchTerm}
+              className={styles.explorer_item}
+              label={"Search"}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position={"start"}>
+                    <SearchIcon />
+                  </InputAdornment>
+                ),
+              }}
+            />
+          </FormControl>
         </Grid>
       </Grid>
       <Grid flexGrow={1} spacing={0.5} container columns={{ xs: 1, md: 2 }}>

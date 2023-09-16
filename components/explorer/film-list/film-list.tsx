@@ -10,7 +10,7 @@ export const FilmList = (props: Props) => {
   return (
     <List>
       {props.films.map((film) => (
-        <FilmListItem film={film} />
+        <FilmListItem key={`film-list-item[${film.episode_id}]`} film={film} />
       ))}
     </List>
   );

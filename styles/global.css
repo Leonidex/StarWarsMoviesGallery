@@ -55,6 +55,14 @@ body {
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'StarWarsLC';
+  src: url('../public/fonts/StarWarsLC.woff2') format('woff2'),
+  url('../public/fonts/StarWarsLC.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 .star_wars_font {
   font-family: StarJedi, News Gothic, NewsGothic, AppleGothic, sans-serif;
 }
@@ -69,6 +77,10 @@ body {
 
 .star_wars_rounded_font {
   font-family: StarJediRounded, StarJedi, News Gothic, NewsGothic, AppleGothic, sans-serif;
+}
+
+.star_wars_lc {
+  font-family: StarWarsLC, StarJedi, News Gothic, NewsGothic, AppleGothic, sans-serif;
 }
 
 #__next {

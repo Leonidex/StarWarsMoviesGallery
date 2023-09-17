@@ -1,7 +1,7 @@
 import { createTheme } from "@mui/material/styles";
 
 const Yellow = "#FFE81F";
-const DarkYellow = "#BFB100";
+const DarkYellow = "#CFB100";
 const LightYellow = "#FFF8BC";
 const Orange = "#FFA500";
 const DarkOrange = "#E89400";
@@ -35,7 +35,7 @@ const starWarsTheme = createTheme({
     },
   },
   typography: {
-    fontFamily: '"Droid Sans", "Roboto", "Arial", sans-serif',
+    fontFamily: "StarWarsLC, Droid Sans, Roboto, StarJedi, Arial, sans-serif",
     allVariants: {
       textShadow: `${Black} 0px 0 5px`,
     },
@@ -79,9 +79,4 @@ const starWarsTheme = createTheme({
   },
 });
 
-const openingCrawlTextStyle = {
-  color: Yellow,
-  fontWeight: "bold",
-};
-
-export { starWarsTheme, openingCrawlTextStyle };
+export { starWarsTheme };

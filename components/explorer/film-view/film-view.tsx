@@ -17,22 +17,20 @@ export const FilmView = (props: Props) => {
       alignContent={"space-around"}
       height={"100%"}
     >
-      <Typography className={"star_wars_font"} variant={"h4"}>
-        {film.title}
-      </Typography>
+      <Typography variant={"h4"}>{film.title}</Typography>
       <CrawlingText
         title={`Episode ${numberToRomanNumeral(film.episode_id)}`}
         subtitle={film.title.toUpperCase()}
         text={film.opening_crawl}
       />
       <Stack direction={"column"}>
-        <Typography className={"star_wars_rounded_font"} variant={"subtitle1"}>
+        <Typography variant={"subtitle1"}>
           Directed by: {film.director}
         </Typography>
-        <Typography className={"star_wars_rounded_font"} variant={"subtitle1"}>
+        <Typography variant={"subtitle1"}>
           Produced by: {film.producer}
         </Typography>
-        <Typography className={"star_wars_rounded_font"} variant={"subtitle1"}>
+        <Typography variant={"subtitle1"}>
           Released at: {film.release_date.toString()}
         </Typography>
       </Stack>

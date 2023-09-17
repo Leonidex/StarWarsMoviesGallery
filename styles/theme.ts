@@ -2,7 +2,7 @@ import { createTheme } from "@mui/material/styles";
 
 const Yellow = "#FFE81F";
 const DarkYellow = "#CFB100";
-const LightYellow = "#FFF8BC";
+const LightYellow = "#fff37a";
 const Orange = "#FFA500";
 const DarkOrange = "#E89400";
 const LightOrange = "#FFB833";

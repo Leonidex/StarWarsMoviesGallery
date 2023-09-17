@@ -8,7 +8,7 @@ const DarkOrange = "#E89400";
 const LightOrange = "#FFB833";
 const Red = "#D32F2F";
 const Black = "#000000";
-const DarkGray = "#1A1A1A";
+const DarkGray = "#1F1F1F";
 
 const starWarsTheme = createTheme({
   palette: {

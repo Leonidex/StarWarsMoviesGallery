@@ -12,5 +12,12 @@ Use the .env.example to create a new .env file for your project, with your own s
 
 ## Running the app
 ```bash
+# Run in development mode
+npm run dev
+
+# Build for production mode
+npm run build
+
+# Run in production mode
 npm start
 ```

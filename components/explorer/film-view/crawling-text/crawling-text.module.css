@@ -1,6 +1,6 @@
 .crawl_container {
-    font-family: News Gothic, NewsGothic, AppleGothic, sans-serif;
-    transform: perspective(80vh) rotateX(25deg) scaleY(1.5);
+    transform-style: preserve-3d;
+    transform: perspective(120vh) rotateX(65deg) scaleY(5);
     transform-origin: 50% 100%;
     display: block;
     text-align: justify;
@@ -21,10 +21,23 @@
 }
 
 .crawl_content {
+    position: absolute;
     top: 100%;
 }
 
 .crawl_text {
-    text-align: center;
+    font-family: News Gothic, NewsGothic, AppleGothic, sans-serif;
+    text-align: justify;
     user-select: none;
+
+    hyphens: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.crawl_text::after {
+    content: '';
+    width: 100%;
+    flex: 0 0 auto;
 }

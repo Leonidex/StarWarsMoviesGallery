@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react";
-import { Box, Typography } from "@mui/material";
+import { useEffect, useMemo, useState } from "react";
+import { Box, Stack, Typography } from "@mui/material";
 import styles from "./crawling-text.module.css";
 import { animated, useSpring } from "react-spring";
 import { StarrySpace } from "../starry-space/starry-space";
 
 interface Props {
+  title: string;
+  subtitle: string;
   text: string;
 }
 
@@ -12,11 +14,29 @@ export const CrawlingText = (props: Props) => {
   const [reset, setReset] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
+  const crawlContent = useMemo(
+    () => (
+      <Stack
+        direction={"column"}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        width={{ sx: "100%", md: "70%", lg: "50%" }}
+      >
+        <Typography className={styles.crawl_text}>{props.title}</Typography>
+        <Typography fontWeight={"bold"} className={styles.crawl_text}>
+          {props.subtitle}
+        </Typography>
+        <Typography className={styles.crawl_text}>{props.text}</Typography>
+      </Stack>
+    ),
+    [props.title, props.subtitle, props.text],
+  );
+
   const animatedDivProps = useSpring({
     reset: reset,
-    from: { transform: "translateY(80vh)" },
-    to: { transform: "translateY(-40vh)" },
-    config: { duration: 30000 },
+    from: { transform: "translateY(0vh)" },
+    to: { transform: "translateY(-200vh)" },
+    config: { duration: 120000 },
     pause: isHovered,
   });
 
@@ -28,22 +48,21 @@ export const CrawlingText = (props: Props) => {
   }, [props.text]);
 
   return (
-    <Box className={styles.crawl_container}>
-      <StarrySpace starCount={300}>
+    <StarrySpace starCount={300}>
+      <Box className={styles.crawl_container}>
         <Box className={styles.crawl_content}>
           <animated.div style={animatedDivProps}>
-            <Box>
-              <Typography
-                className={styles.crawl_text}
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
-              >
-                {props.text}
-              </Typography>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+              }}
+            >
+              {crawlContent}
             </Box>
           </animated.div>
         </Box>
-      </StarrySpace>
-    </Box>
+      </Box>
+    </StarrySpace>
   );
 };

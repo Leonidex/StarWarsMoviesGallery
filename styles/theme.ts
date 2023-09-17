@@ -8,7 +8,7 @@ const DarkOrange = "#E89400";
 const LightOrange = "#FFB833";
 const Red = "#D32F2F";
 const Black = "#000000";
-const Gray = "#1A1A1A";
+const DarkGray = "#1A1A1A";
 
 const starWarsTheme = createTheme({
   palette: {
@@ -27,7 +27,7 @@ const starWarsTheme = createTheme({
     },
     background: {
       default: Black,
-      paper: Gray,
+      paper: DarkGray,
     },
     text: {
       primary: LightYellow,
@@ -36,6 +36,9 @@ const starWarsTheme = createTheme({
   },
   typography: {
     fontFamily: '"Droid Sans", "Roboto", "Arial", sans-serif',
+    allVariants: {
+      textShadow: `${Black} 0px 0 5px`,
+    },
   },
   components: {
     MuiStack: {
@@ -48,7 +51,7 @@ const starWarsTheme = createTheme({
     MuiAvatar: {
       styleOverrides: {
         root: {
-          backgroundColor: DarkOrange,
+          backgroundColor: LightYellow,
         },
       },
     },

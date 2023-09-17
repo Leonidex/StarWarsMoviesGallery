@@ -23,6 +23,54 @@ body {
   background-color: black;
 }
 
+@font-face {
+  font-family: 'StarJedi';
+  src: url('../public/fonts/StarJedi-DGRW.woff2') format('woff2'),
+  url('../public/fonts/StarJedi-DGRW.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'StarJediOutline';
+  src: url('../public/fonts/StarJediOutline-y0xm.woff2') format('woff2'),
+  url('../public/fonts/StarJediOutline-y0xm.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'StarJediHollow';
+  src: url('../public/fonts/StarJediHollow-A4lL.woff2') format('woff2'),
+  url('../public/fonts/StarJediHollow-A4lL.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'StarJediRounded';
+  src: url('../public/fonts/StarJediRounded-jW3R.woff2') format('woff2'),
+  url('../public/fonts/StarJediRounded-jW3R.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.star_wars_font {
+  font-family: StarJedi, News Gothic, NewsGothic, AppleGothic, sans-serif;
+}
+
+.star_wars_outline_font {
+  font-family: StarJediOutline, StarJedi, News Gothic, NewsGothic, AppleGothic, sans-serif;
+}
+
+.star_wars_hollow_font {
+  font-family: StarJediHollow, StarJedi, News Gothic, NewsGothic, AppleGothic, sans-serif;
+}
+
+.star_wars_rounded_font {
+  font-family: StarJediRounded, StarJedi, News Gothic, NewsGothic, AppleGothic, sans-serif;
+}
+
 #__next {
   position: relative;
   height: 100%;

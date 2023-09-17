@@ -3,6 +3,7 @@ import { Stack, Typography } from "@mui/material";
 import { useAtomValue } from "jotai";
 import { selectedFilmAtom } from "../../../lib/store/atoms";
 import { CrawlingText } from "./crawling-text/crawling-text";
+import { numberToRomanNumeral } from "../../../lib/utils/number";
 
 interface Props {}
 
@@ -16,22 +17,30 @@ export const FilmView = (props: Props) => {
       alignContent={"space-around"}
       height={"100%"}
     >
-      <Typography variant={"h4"}>{film.title}</Typography>
-      <CrawlingText text={film.opening_crawl} />
+      <Typography className={"star_wars_font"} variant={"h4"}>
+        {film.title}
+      </Typography>
+      <CrawlingText
+        title={`Episode ${numberToRomanNumeral(film.episode_id)}`}
+        subtitle={film.title.toUpperCase()}
+        text={film.opening_crawl}
+      />
       <Stack direction={"column"}>
-        <Typography variant={"subtitle1"}>
+        <Typography className={"star_wars_rounded_font"} variant={"subtitle1"}>
           Directed by: {film.director}
         </Typography>
-        <Typography variant={"subtitle1"}>
+        <Typography className={"star_wars_rounded_font"} variant={"subtitle1"}>
           Produced by: {film.producer}
         </Typography>
-        <Typography variant={"subtitle1"}>
+        <Typography className={"star_wars_rounded_font"} variant={"subtitle1"}>
           Released at: {film.release_date.toString()}
         </Typography>
       </Stack>
       {/*<ItemsAccordion itemUrls={film.characters} title={"Characters"} />*/}
     </Stack>
   ) : (
-    <Center>No film selected</Center>
+    <Center>
+      <Typography>No film selected</Typography>
+    </Center>
   );
 };

@@ -10,8 +10,8 @@ interface Props {
 export const StarrySpace = (props: Props) => {
   return (
     <Box sx={{ height: "100%", width: "100%", position: "relative" }}>
-      {Array.from(Array(props.starCount), () => (
-        <Star />
+      {Array.from(Array(props.starCount), (_, index) => (
+        <Star key={`starry-space-stars[${index}]`} />
       ))}
       {props.children}
     </Box>

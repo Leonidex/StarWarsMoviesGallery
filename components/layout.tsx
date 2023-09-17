@@ -20,7 +20,9 @@ export default function Layout(props: Props) {
         <title>{siteTitle}</title>
       </Head>
       <Stack className={styles.header}>
-        <Typography>{siteTitle}</Typography>
+        <Typography className={"star_wars_outline_font"}>
+          {siteTitle}
+        </Typography>
       </Stack>
       <Stack className={styles.contentContainer}>{props.children}</Stack>
     </Stack>

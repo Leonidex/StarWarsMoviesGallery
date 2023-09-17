@@ -20,7 +20,7 @@ export const CrawlingText = (props: Props) => {
         direction={"column"}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        width={{ sx: "100%", md: "70%", lg: "50%" }}
+        width={{ sx: "100%", md: "75%", lg: "60%" }}
       >
         <Typography className={styles.crawl_text}>{props.title}</Typography>
         <Typography fontWeight={"bold"} className={styles.crawl_text}>

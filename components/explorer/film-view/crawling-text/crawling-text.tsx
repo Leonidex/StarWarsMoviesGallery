@@ -10,16 +10,21 @@ interface Props {
 
 export const CrawlingText = (props: Props) => {
   const [reset, setReset] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   const animatedDivProps = useSpring({
     reset: reset,
     from: { transform: "translateY(80vh)" },
     to: { transform: "translateY(-40vh)" },
     config: { duration: 30000 },
+    pause: isHovered,
   });
 
   useEffect(() => {
-    setReset(!reset);
+    setReset(true);
+    setTimeout(() => {
+      setReset(false);
+    }, 100);
   }, [props.text]);
 
   return (
@@ -27,10 +32,12 @@ export const CrawlingText = (props: Props) => {
       <StarrySpace starCount={300}>
         <Box className={styles.crawl_content}>
           <animated.div style={animatedDivProps}>
-            <Box
-              style={{ fontSize: "4em", fontWeight: "bold", color: "#FFE81F" }}
-            >
-              <Typography className={styles.crawl_text}>
+            <Box>
+              <Typography
+                className={styles.crawl_text}
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+              >
                 {props.text}
               </Typography>
             </Box>

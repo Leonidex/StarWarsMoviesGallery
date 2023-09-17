@@ -26,4 +26,5 @@
 
 .crawl_text {
     text-align: center;
+    user-select: none;
 }

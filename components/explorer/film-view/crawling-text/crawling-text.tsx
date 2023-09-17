@@ -24,7 +24,7 @@ export const CrawlingText = (props: Props) => {
 
   return (
     <Box className={styles.crawl_container}>
-      <StarrySpace starCount={100}>
+      <StarrySpace starCount={300}>
         <Box className={styles.crawl_content}>
           <animated.div style={animatedDivProps}>
             <Box

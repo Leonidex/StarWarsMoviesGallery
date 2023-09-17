@@ -4,3 +4,20 @@
     height: 1px;
     background-color: white;
 }
+
+.dim_animation {
+    animation: dim_animation_keyframes ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+@keyframes dim_animation_keyframes {
+    0% {
+        opacity:0;
+    }
+    50% {
+        opacity:1;
+    }
+    100% {
+        opacity:0;
+    }
+}

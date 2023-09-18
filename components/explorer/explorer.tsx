@@ -1,6 +1,5 @@
 import {
   Box,
-  CircularProgress,
   FormControl,
   Grid,
   InputAdornment,
@@ -18,7 +17,6 @@ import { Pane } from "./pane";
 import { useCallback, useEffect, useState } from "react";
 import { fetchFilmsAtom } from "../../lib/store/actions";
 import { FilmList } from "./film-list/film-list";
-import { Center } from "../basic/center";
 import { FilmView } from "./film-view/film-view";
 import { Film } from "../../lib/types";
 import {
@@ -27,6 +25,7 @@ import {
 } from "../../lib/utils/array";
 import { toPascalCase } from "../../lib/utils/string";
 import SearchIcon from "@mui/icons-material/Search";
+import { LoadingScreen } from "./loading-screen";
 
 enum SortKeysEnum {
   episode_id = "episode_id",
@@ -79,6 +78,7 @@ export const Explorer = (props: Props) => {
 
   return (
     <Paper square className={styles.explorer_container}>
+      <LoadingScreen isLoading={isLoading} />
       <Paper elevation={3}>
         <Stack direction={"row"} padding={"2px"} sx={{ gap: "2px" }}>
           <Box sx={{ flexGrow: 1 }}>
@@ -121,13 +121,7 @@ export const Explorer = (props: Props) => {
       <Grid flexGrow={1} spacing={0.5} container columns={{ xs: 1, md: 2 }}>
         <Grid item xs={1}>
           <Pane>
-            {isLoading ? (
-              <Center>
-                <CircularProgress />
-              </Center>
-            ) : (
-              <FilmList films={sortFilms(filterFilms(films))} />
-            )}
+            <FilmList films={sortFilms(filterFilms(films))} />
           </Pane>
         </Grid>
         <Grid item xs={1}>

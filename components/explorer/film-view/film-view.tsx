@@ -34,7 +34,6 @@ export const FilmView = (props: Props) => {
           Released at: {film.release_date.toString()}
         </Typography>
       </Stack>
-      {/*<ItemsAccordion itemUrls={film.characters} title={"Characters"} />*/}
     </Stack>
   ) : (
     <Center>

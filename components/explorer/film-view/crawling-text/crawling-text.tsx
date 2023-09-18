@@ -1,9 +1,8 @@
-import { useEffect, useState } from "react";
+import { ReactElement, useEffect, useState } from "react";
 import { Box, Stack, Typography } from "@mui/material";
 import styles from "./crawling-text.module.css";
 import { animated, useSpring } from "react-spring";
 import { StarrySpace } from "../starry-space/starry-space";
-import { ReactJSXElement } from "@emotion/react/types/jsx-namespace";
 
 interface Props {
   title: string;
@@ -15,7 +14,7 @@ export const CrawlingText = (props: Props) => {
   const [reset, setReset] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
-  const [crawlContent, setCrawlContent] = useState<ReactJSXElement>();
+  const [crawlContent, setCrawlContent] = useState<ReactElement>();
 
   const animatedDivProps = useSpring({
     reset: reset,

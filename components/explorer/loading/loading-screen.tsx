@@ -2,6 +2,9 @@ import { Backdrop, Typography } from "@mui/material";
 import styles from "./loading.module.css";
 import { useState } from "react";
 import { Saber } from "./saber";
+import { Center } from "../../basic/center";
+import { useSetAtom } from "jotai";
+import { changeLoadingSideAtom } from "../../../lib/store/actions";
 
 interface Props {
   isLoading: boolean;
@@ -10,8 +13,14 @@ interface Props {
 export const LoadingScreen = (props: Props) => {
   const [showLogo, setShowLogo] = useState(true);
 
+  const changeSide = useSetAtom(changeLoadingSideAtom);
+
   return (
-    <Backdrop open={props.isLoading} sx={{ zIndex: 999 }}>
+    <Backdrop
+      open={props.isLoading}
+      sx={{ zIndex: 999 }}
+      onClick={() => changeSide()}
+    >
       {showLogo ? (
         <Typography
           className={`${styles.star_wars_text} ${styles.star_wars_intro} star_wars_hollow_font`}
@@ -22,13 +31,9 @@ export const LoadingScreen = (props: Props) => {
           Star Wars
         </Typography>
       ) : (
-        <Typography
-          className={`${styles.star_wars_text} star_wars_hollow_font`}
-          sx={{ userSelect: "none", fontSize: "2rem" }}
-          color={"primary"}
-        >
+        <Center>
           <Saber />
-        </Typography>
+        </Center>
       )}
     </Backdrop>
   );

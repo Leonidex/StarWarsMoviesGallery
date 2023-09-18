@@ -1,6 +1,6 @@
 import { atom } from "jotai";
 import { Film } from "../types";
-import { filmsAtom, selectedFilmAtom } from "./atoms";
+import { filmsAtom, loadingSideAtom, selectedFilmAtom, Side } from "./atoms";
 import axios from "axios";
 
 export const fetchFilmsAtom = atom(null, async (get, set) => {
@@ -20,5 +20,15 @@ export const setSelectedFilmAtom = atom(null, (get, set, film: Film) => {
     set(selectedFilmAtom, film);
   } else {
     set(selectedFilmAtom, null);
+  }
+});
+
+export const changeLoadingSideAtom = atom(null, (get, set) => {
+  const currentLoadingSide = get(loadingSideAtom);
+
+  if (currentLoadingSide === Side.LIGHT) {
+    set(loadingSideAtom, Side.DARK);
+  } else {
+    set(loadingSideAtom, Side.LIGHT);
   }
 });

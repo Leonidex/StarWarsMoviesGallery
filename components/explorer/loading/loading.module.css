@@ -162,7 +162,7 @@
 
 @keyframes saberSwing {
     0% {
-        transform: rotate(-30deg) translateX(-1vw);
+        transform: rotate(0deg) translateX(0vw);
     }
     10% {
         transform: rotate(30deg) translateX(-8vw);
@@ -189,6 +189,6 @@
         transform: rotate(380deg) translateX(-5vw);
     }
     100% {
-        transform: rotate(-30deg) translateX(-1vw);
+        transform: rotate(0deg) translateX(0vw);
     }
 }

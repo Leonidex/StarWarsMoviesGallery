@@ -26,6 +26,7 @@ import {
 import { toPascalCase } from "../../lib/utils/string";
 import SearchIcon from "@mui/icons-material/Search";
 import { LoadingScreen } from "./loading/loading-screen";
+import { ErrorModal } from "./error-modal";
 
 enum SortKeysEnum {
   episode_id = "episode_id",
@@ -38,6 +39,8 @@ interface Props {}
 
 export const Explorer = (props: Props) => {
   const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
+
   const [, fetchFilms] = useAtom(fetchFilmsAtom);
 
   useEffect(() => {
@@ -47,6 +50,7 @@ export const Explorer = (props: Props) => {
       .catch((err) => {
         console.error(err);
         setIsLoading(false);
+        setIsError(true);
       });
   }, []);
 
@@ -79,6 +83,7 @@ export const Explorer = (props: Props) => {
   return (
     <Paper square className={styles.explorer_container}>
       <LoadingScreen isLoading={isLoading} />
+      <ErrorModal isError={isError} />
       <Paper elevation={3}>
         <Stack direction={"row"} padding={"2px"} sx={{ gap: "2px" }}>
           <Box sx={{ flexGrow: 1 }}>

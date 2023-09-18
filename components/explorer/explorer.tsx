@@ -123,7 +123,7 @@ export const Explorer = (props: Props) => {
           </Box>
         </Stack>
       </Paper>
-      {!isLoading && (
+      {!isLoading && !isError && (
         <Grid flexGrow={1} spacing={0.5} container columns={{ xs: 1, md: 2 }}>
           <Grid item xs={1}>
             <Pane>

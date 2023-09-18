@@ -5,7 +5,7 @@
 }
 
 .star_wars_intro {
-    animation: star_wars_intro_keyframes 5s forwards linear;
+    animation: star_wars_intro_keyframes 4s forwards linear;
     opacity: 0;
 }
 
@@ -27,13 +27,93 @@
     }
 }
 
+.loading_text, .loading_first_dot, .loading_second_dot, .loading_third_dot {
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-duration: 3s;
+}
+
+.loading_text {
+    animation-name: fade-in-out-text;
+}
+
+.loading_first_dot {
+    animation-name: fade-in-out-first-dot;
+}
+
+.loading_second_dot {
+    animation-name: fade-in-out-second-dot;
+}
+
+.loading_third_dot {
+    animation-name: fade-in-out-third-dot;
+}
+
+@keyframes fade-in-out-text {
+    0% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes fade-in-out-first-dot {
+    0% {
+        opacity: 0;
+    }
+    30% {
+        opacity: 1;
+    }
+    70% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes fade-in-out-second-dot {
+    0% {
+        opacity: 0;
+    }
+    40% {
+        opacity: 1;
+    }
+    60% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes fade-in-out-third-dot {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+
 .lightsaber {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
-    animation: saberSwing 3s infinite 4s ease;
-    transform-origin: 0px 700px;
+    animation: saberSwing 4s infinite 2s ease-in-out;
+    transform-origin: 0 700px;
 }
 
 .hilt {
@@ -58,10 +138,10 @@
 
 .blade {
     width: 10px;
-    height: 400px;
+    height: 0;
     background: #2196F3;
     transform-origin: bottom center;
-    animation: saberOn 1s forwards 2s;
+    animation: saberOn 1s forwards 1s;
     border-radius: 5px;
     box-shadow: #2196F3 0px -3px 15px;
 }
@@ -84,28 +164,31 @@
     0% {
         transform: rotate(-30deg) translateX(-1vw);
     }
-    25% {
-        transform: rotate(30deg) translateX(-10vw);
-    }
-    50% {
-        transform: rotate(60deg) translateX(-2vw);
-    }
-    75% {
-        transform: rotate(10deg) translateX(5vw);
-    }
     10% {
-        transform: rotate(60deg) translateX(8vw);
-    }
-    90% {
-        transform: rotate(-60deg) translateX(2vw);
-    }
-    20% {
         transform: rotate(30deg) translateX(-8vw);
     }
-    80% {
+    12% {
+        transform: rotate(30deg) translateX(-10vw);
+    }
+    25% {
+        transform: rotate(45deg) translateX(-2vw);
+    }
+    35% {
+        transform: rotate(10deg) translateX(5vw);
+    }
+    40% {
         transform: rotate(-30deg) translateX(-2vw);
     }
-    100% {
+    45% {
+        transform: rotate(-60deg) translateX(2vw);
+    }
+    50% {
         transform: rotate(-45deg) translateX(-5vw);
+    }
+    75% {
+        transform: rotate(380deg) translateX(-5vw);
+    }
+    100% {
+        transform: rotate(-30deg) translateX(-1vw);
     }
 }

@@ -18,7 +18,7 @@ export const LoadingScreen = (props: Props) => {
   return (
     <Backdrop
       open={props.isLoading}
-      sx={{ zIndex: 999 }}
+      sx={{ zIndex: 999, cursor: "pointer", backdropFilter: "blur(5px)" }}
       onClick={() => changeSide()}
     >
       {showLogo ? (
@@ -32,6 +32,34 @@ export const LoadingScreen = (props: Props) => {
         </Typography>
       ) : (
         <Center>
+          <Typography
+            className={styles.loading_text}
+            sx={{ userSelect: "none", fontSize: "3rem" }}
+            color={"secondary"}
+          >
+            Loading
+          </Typography>
+          <Typography
+            className={styles.loading_first_dot}
+            sx={{ userSelect: "none", fontSize: "3rem" }}
+            color={"secondary"}
+          >
+            .
+          </Typography>
+          <Typography
+            className={styles.loading_second_dot}
+            sx={{ userSelect: "none", fontSize: "3rem" }}
+            color={"secondary"}
+          >
+            .
+          </Typography>
+          <Typography
+            className={styles.loading_third_dot}
+            sx={{ userSelect: "none", fontSize: "3rem" }}
+            color={"secondary"}
+          >
+            .
+          </Typography>
           <Saber />
         </Center>
       )}

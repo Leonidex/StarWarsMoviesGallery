@@ -24,7 +24,7 @@ export const LoadingScreen = (props: Props) => {
       {showLogo ? (
         <Typography
           className={`${styles.star_wars_text} ${styles.star_wars_intro} star_wars_hollow_font`}
-          sx={{ userSelect: "none", fontSize: "5rem" }}
+          sx={{ userSelect: "none", fontSize: "5rem", textAlign: "center" }}
           color={"primary"}
           onAnimationEnd={() => setShowLogo(false)}
         >

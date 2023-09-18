@@ -1,6 +1,7 @@
-import { Backdrop, CircularProgress, Typography } from "@mui/material";
-import styles from "./explorer.module.css";
+import { Backdrop, Typography } from "@mui/material";
+import styles from "./loading.module.css";
 import { useState } from "react";
+import { Saber } from "./saber";
 
 interface Props {
   isLoading: boolean;
@@ -13,7 +14,7 @@ export const LoadingScreen = (props: Props) => {
     <Backdrop open={props.isLoading} sx={{ zIndex: 999 }}>
       {showLogo ? (
         <Typography
-          className={`${styles.star_wars_text} star_wars_hollow_font`}
+          className={`${styles.star_wars_text} ${styles.star_wars_intro} star_wars_hollow_font`}
           sx={{ userSelect: "none", fontSize: "5rem" }}
           color={"primary"}
           onAnimationEnd={() => setShowLogo(false)}
@@ -21,7 +22,13 @@ export const LoadingScreen = (props: Props) => {
           Star Wars
         </Typography>
       ) : (
-        <CircularProgress />
+        <Typography
+          className={`${styles.star_wars_text} star_wars_hollow_font`}
+          sx={{ userSelect: "none", fontSize: "2rem" }}
+          color={"primary"}
+        >
+          <Saber />
+        </Typography>
       )}
     </Backdrop>
   );

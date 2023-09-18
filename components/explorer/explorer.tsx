@@ -25,7 +25,7 @@ import {
 } from "../../lib/utils/array";
 import { toPascalCase } from "../../lib/utils/string";
 import SearchIcon from "@mui/icons-material/Search";
-import { LoadingScreen } from "./loading-screen";
+import { LoadingScreen } from "./loading/loading-screen";
 
 enum SortKeysEnum {
   episode_id = "episode_id",
@@ -118,18 +118,20 @@ export const Explorer = (props: Props) => {
           </Box>
         </Stack>
       </Paper>
-      <Grid flexGrow={1} spacing={0.5} container columns={{ xs: 1, md: 2 }}>
-        <Grid item xs={1}>
-          <Pane>
-            <FilmList films={sortFilms(filterFilms(films))} />
-          </Pane>
+      {!isLoading && (
+        <Grid flexGrow={1} spacing={0.5} container columns={{ xs: 1, md: 2 }}>
+          <Grid item xs={1}>
+            <Pane>
+              <FilmList films={sortFilms(filterFilms(films))} />
+            </Pane>
+          </Grid>
+          <Grid item xs={1}>
+            <Pane>
+              <FilmView />
+            </Pane>
+          </Grid>
         </Grid>
-        <Grid item xs={1}>
-          <Pane>
-            <FilmView />
-          </Pane>
-        </Grid>
-      </Grid>
+      )}
     </Paper>
   );
 };

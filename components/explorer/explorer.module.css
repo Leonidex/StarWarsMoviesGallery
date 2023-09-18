@@ -11,30 +11,3 @@
     height: 100%;
     width: 100%;
 }
-
-.star_wars_text {
-    display: inline-block;
-    padding: 20px;
-    border-radius: 8px;
-    opacity: 0;
-    transform: scale(0);
-    animation: starWarsIntro 5s forwards linear;
-}
-
-@keyframes starWarsIntro {
-    0% {
-        transform: scale(3);
-        opacity: 0;
-    }
-    10% {
-        transform: scale(2.5);
-        opacity: 0.5;
-    }
-    80% {
-        transform: scale(0.2);
-        opacity: 1;
-    }
-    100% {
-        transform: scale(0);
-    }
-}

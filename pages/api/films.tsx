@@ -15,7 +15,7 @@ export default async function handler(
   }
 
   if (response?.data?.results) {
-    res.status(200).json(response?.data?.results);
+    res.status(200).json(response?.data);
   } else {
     res.status(500);
   }

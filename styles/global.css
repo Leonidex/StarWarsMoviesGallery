@@ -31,39 +31,39 @@ body {
 
 @font-face {
   font-family: 'StarJedi';
-  src: url('../public/fonts/StarJedi-DGRW.woff2') format('woff2'),
-  url('../public/fonts/StarJedi-DGRW.woff') format('woff');
+  src: url('../public/fonts/StarJedi.eot');
+  src: url('../public/fonts/StarJedi.eot?#iefix') format('embedded-opentype'),
+  url('../public/fonts/StarJedi.woff2') format('woff2'),
+  url('../public/fonts/StarJedi.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'StarJediOutline';
-  src: url('../public/fonts/StarJediOutline-y0xm.woff2') format('woff2'),
-  url('../public/fonts/StarJediOutline-y0xm.woff') format('woff');
+  src: url('../public/fonts/StarJediOutline.eot');
+  src: url('../public/fonts/StarJediOutline.eot?#iefix') format('embedded-opentype'),
+  url('../public/fonts/StarJediOutline.woff2') format('woff2'),
+  url('../public/fonts/StarJediOutline.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'StarJediHollow';
-  src: url('../public/fonts/StarJediHollow-A4lL.woff2') format('woff2'),
-  url('../public/fonts/StarJediHollow-A4lL.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'StarJediRounded';
-  src: url('../public/fonts/StarJediRounded-jW3R.woff2') format('woff2'),
-  url('../public/fonts/StarJediRounded-jW3R.woff') format('woff');
+  src: url('../public/fonts/StarJediHollow.eot');
+  src: url('../public/fonts/StarJediHollow.eot?#iefix') format('embedded-opentype'),
+  url('../public/fonts/StarJediHollow.woff2') format('woff2'),
+  url('../public/fonts/StarJediHollow.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'StarWarsLC';
-  src: url('../public/fonts/StarWarsLC.woff2') format('woff2'),
+  src: url('../public/fonts/StarWarsLC.eot');
+  src: url('../public/fonts/StarWarsLC.eot?#iefix') format('embedded-opentype'),
+  url('../public/fonts/StarWarsLC.woff2') format('woff2'),
   url('../public/fonts/StarWarsLC.woff') format('woff');
   font-weight: normal;
   font-style: normal;
@@ -79,10 +79,6 @@ body {
 
 .star_wars_hollow_font {
   font-family: StarJediHollow, StarJedi, News Gothic, NewsGothic, AppleGothic, sans-serif;
-}
-
-.star_wars_rounded_font {
-  font-family: StarJediRounded, StarJedi, News Gothic, NewsGothic, AppleGothic, sans-serif;
 }
 
 .star_wars_lc {

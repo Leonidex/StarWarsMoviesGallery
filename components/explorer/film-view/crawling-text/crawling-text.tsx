@@ -1,8 +1,9 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { Box, Stack, Typography } from "@mui/material";
 import styles from "./crawling-text.module.css";
 import { animated, useSpring } from "react-spring";
 import { StarrySpace } from "../starry-space/starry-space";
+import { ReactJSXElement } from "@emotion/react/types/jsx-namespace";
 
 interface Props {
   title: string;
@@ -14,23 +15,7 @@ export const CrawlingText = (props: Props) => {
   const [reset, setReset] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
-  const crawlContent = useMemo(
-    () => (
-      <Stack
-        direction={"column"}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-        width={{ sx: "100%", md: "75%", lg: "60%" }}
-      >
-        <Typography className={styles.crawl_text}>{props.title}</Typography>
-        <Typography fontWeight={"bold"} className={styles.crawl_text}>
-          {props.subtitle}
-        </Typography>
-        <Typography className={styles.crawl_text}>{props.text}</Typography>
-      </Stack>
-    ),
-    [props.title, props.subtitle, props.text],
-  );
+  const [crawlContent, setCrawlContent] = useState<ReactJSXElement>();
 
   const animatedDivProps = useSpring({
     reset: reset,
@@ -45,7 +30,22 @@ export const CrawlingText = (props: Props) => {
     setTimeout(() => {
       setReset(false);
     }, 100);
-  }, [props.text]);
+
+    setCrawlContent(
+      <Stack
+        direction={"column"}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        width={{ sx: "100%", md: "75%", lg: "60%" }}
+      >
+        <Typography className={styles.crawl_text}>{props.title}</Typography>
+        <Typography fontWeight={"bold"} className={styles.crawl_text}>
+          {props.subtitle}
+        </Typography>
+        <Typography className={styles.crawl_text}>{props.text}</Typography>
+      </Stack>,
+    );
+  }, [props.title, props.subtitle, props.text]);
 
   return (
     <StarrySpace starCount={300}>

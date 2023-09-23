@@ -38,6 +38,7 @@ const starWarsTheme = createTheme({
     fontFamily: "StarWarsLC, Droid Sans, Roboto, StarJedi, Arial, sans-serif",
     allVariants: {
       textShadow: `${Black} 0px 0 5px`,
+      userSelect: "none",
     },
   },
   components: {

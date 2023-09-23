@@ -24,7 +24,7 @@ export const LoadingScreen = (props: Props) => {
       {showLogo ? (
         <Typography
           className={`${styles.star_wars_text} ${styles.star_wars_intro} star_wars_hollow_font`}
-          sx={{ userSelect: "none", fontSize: "5rem", textAlign: "center" }}
+          sx={{ fontSize: "5rem", textAlign: "center" }}
           color={"primary"}
           onAnimationEnd={() => setShowLogo(false)}
         >
@@ -34,28 +34,28 @@ export const LoadingScreen = (props: Props) => {
         <Center>
           <Typography
             className={styles.loading_text}
-            sx={{ userSelect: "none", fontSize: "3rem" }}
+            sx={{ fontSize: "3rem" }}
             color={"secondary"}
           >
             Loading
           </Typography>
           <Typography
             className={styles.loading_first_dot}
-            sx={{ userSelect: "none", fontSize: "3rem" }}
+            sx={{ fontSize: "3rem" }}
             color={"secondary"}
           >
             .
           </Typography>
           <Typography
             className={styles.loading_second_dot}
-            sx={{ userSelect: "none", fontSize: "3rem" }}
+            sx={{ fontSize: "3rem" }}
             color={"secondary"}
           >
             .
           </Typography>
           <Typography
             className={styles.loading_third_dot}
-            sx={{ userSelect: "none", fontSize: "3rem" }}
+            sx={{ fontSize: "3rem" }}
             color={"secondary"}
           >
             .

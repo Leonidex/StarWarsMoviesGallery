@@ -1,4 +1,4 @@
-import { Box, Modal, Typography } from "@mui/material";
+import { Backdrop, Box, Typography } from "@mui/material";
 import { Center } from "../basic/center";
 
 interface Props {
@@ -7,7 +7,11 @@ interface Props {
 
 export const ErrorModal = (props: Props) => {
   return (
-    <Modal open={props.isError}>
+    <Backdrop
+      open={props.isError}
+      data-testid={"error-modal"}
+      sx={{ zIndex: 999, backdropFilter: "blur(5px)" }}
+    >
       <Box>
         <Center>
           <Typography color={"error"}>
@@ -15,6 +19,6 @@ export const ErrorModal = (props: Props) => {
           </Typography>
         </Center>
       </Box>
-    </Modal>
+    </Backdrop>
   );
 };

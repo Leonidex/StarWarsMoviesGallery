@@ -16,6 +16,7 @@ export const fetchFilmsAtom = atom(null, async (get, set) => {
     set(filmsAtom, films);
   } catch (error) {
     console.debug("There was an error fetching the films", error);
+    throw error;
   }
 });
 

@@ -8,7 +8,7 @@ interface Props {
 
 export const FilmList = (props: Props) => {
   return (
-    <List>
+    <List data-testid={"film-list"}>
       {props.films.map((film) => (
         <FilmListItem key={`film-list-item[${film.episode_id}]`} film={film} />
       ))}

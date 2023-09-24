@@ -20,6 +20,7 @@ export const LoadingScreen = (props: Props) => {
       open={props.isLoading}
       sx={{ zIndex: 999, cursor: "pointer", backdropFilter: "blur(5px)" }}
       onClick={() => changeSide()}
+      data-testid={"loading-screen-backdrop"}
     >
       {showLogo ? (
         <Typography

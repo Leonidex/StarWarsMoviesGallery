@@ -95,6 +95,7 @@ export const Explorer = (props: Props) => {
                 label={"Sort by"}
                 value={sortField}
                 onChange={(e) => setSortField(e.target.value as SortKeysEnum)}
+                data-testid={"sort-select"}
               >
                 {Object.keys(SortKeysEnum).map((key) => (
                   <MenuItem value={key} key={`sort-by-menu-item[${key}]`}>
